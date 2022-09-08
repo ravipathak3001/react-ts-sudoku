@@ -1,0 +1,23 @@
+/**
+ * Compares two arrays of multilevel dimensions ans returns true they are equal
+ * @param array1 first array to match
+ * @param arr2 second array to match
+ * @returns
+ */
+function compareArrays(arr1: any[], arr2: any[]): boolean {
+  if (!Array.isArray(arr1) && !Array.isArray(arr2)) {
+    return arr1 === arr2
+  }
+
+  if (arr1.length != arr2.length) {
+    return false
+  }
+
+  for (let i = 0, len = arr1.length; i < len; i++) {
+    if (!compareArrays(arr1[i], arr2[i])) return false
+  }
+
+  return true
+}
+
+export default compareArrays
